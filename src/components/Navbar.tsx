@@ -10,7 +10,6 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Prevent hydration mismatch for theme toggle
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -24,10 +23,9 @@ export default function Navbar() {
             href="/"
             className="text-2xl font-bold text-blue-900 dark:text-white"
           >
-            REFYNLY
+            REFYNELY
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center space-x-6">
             <Link href="/features" className="nav-link">
               Features
@@ -46,9 +44,7 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          {/* Right controls */}
           <div className="flex items-center space-x-4">
-            {/* Theme toggle */}
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "light" ? "dark" : "light")}
@@ -59,7 +55,6 @@ export default function Navbar() {
               </button>
             )}
 
-            {/* Auth buttons */}
             <Link href="/login" className="nav-link hidden md:inline">
               Login
             </Link>
@@ -67,7 +62,6 @@ export default function Navbar() {
               Get Started
             </Link>
 
-            {/* Mobile menu button */}
             <button
               className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               onClick={() => setMobileOpen((prev) => !prev)}
@@ -79,7 +73,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile drawer */}
       {mobileOpen && (
         <nav className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
           {[

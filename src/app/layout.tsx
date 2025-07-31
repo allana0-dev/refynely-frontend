@@ -1,17 +1,8 @@
-import "../styles/globals.css";
-import Layout from "../components/Layout";
-import Providers from "./providers"; // adjust path if placed elsewhere
-import { Poppins } from "next/font/google";
+import "./globals.css";
+import Providers from "./providers";
+import { Toaster } from "react-hot-toast";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
-
-export const metadata = {
-  title: "Refynely - AI Powered Pitch Decks",
-  description: "Generate AI Powered Pitch Decks in Seconds",
-};
+export const metadata = {};
 
 export default function RootLayout({
   children,
@@ -19,10 +10,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`min-h-screen bg-slate-50 ${poppins.className}`}>
+    <html lang="en" suppressHydrationWarning>
+      <body>
         <Providers>
-          <Layout>{children}</Layout>
+          {children}
+          <Toaster position="top-center" />
         </Providers>
       </body>
     </html>

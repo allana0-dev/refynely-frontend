@@ -1,7 +1,18 @@
+"use client";
 import React from "react";
 import { Play, Copy, Settings, Maximize2 } from "lucide-react";
+import { useAuth } from "../../context/AuthContext";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function HomePage() {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+  useEffect(() => {
+    if (!loading && user) {
+      router.replace("/presentations/me");
+    }
+  }, [user, loading, router]);
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6  lg:px-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 py-16">
@@ -14,7 +25,7 @@ export default function HomePage() {
             minute, using our powerful AI generator.
           </p>
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-medium transition-colors w-fit mb-8">
-            Get Started
+            Get Started For Free
           </button>
           <p className="text-gray-500 text-lg">
             Over{" "}
@@ -104,9 +115,7 @@ export default function HomePage() {
 
       <div className="py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="bg-gradient-to-br from-pink-100 to-purple-100 rounded-3xl p-8">
-        
-          </div>
+          <div className="bg-gradient-to-br from-pink-100 to-purple-100 rounded-3xl p-8"></div>
 
           <div>
             <p className="text-gray-500 text-lg mb-4">
