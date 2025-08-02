@@ -2,18 +2,17 @@
 "use client";
 
 import { useAuth } from "@/context/AuthContext";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import Sidebar from "@/components/SideBar";
+import SlideSidebar from "@/components/studio/SlidesSideBar";
 
-export default function ProtectedLayout({
+export default function PresentationLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const { user, loading } = useAuth();
   const router = useRouter();
-  const pathname = usePathname();
 
   useEffect(() => {
     if (!loading && !user) router.replace("/login");
@@ -25,12 +24,9 @@ export default function ProtectedLayout({
     );
   }
 
-  const showSidebar =
-    pathname === "/presentations/me" || pathname === "/templates";
-
   return (
     <div className="flex h-screen">
-      {showSidebar && <Sidebar />}
+      <SlideSidebar />
       <main className="flex-1 overflow-auto">{children}</main>
     </div>
   );

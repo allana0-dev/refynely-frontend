@@ -1,7 +1,5 @@
-// src/app/(public)/login/page.tsx
 "use client";
 
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -140,7 +138,6 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Right: illustration */}
       <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-tr items-center justify-center p-12">
         <Image
           src="/signup-image.png"

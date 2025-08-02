@@ -1,0 +1,35 @@
+{
+  "id": "slide-1",
+  "elements": [
+    {
+      "id": "el-1",
+      "type": "title",
+      "content": "Welcome to Refynely",
+      "position": { "x": 50, "y": 40 },
+      "size": { "width": 400, "height": 60 },
+      "style": {
+        "fontSize": 32,
+        "color": "#1e3a8a",
+        "fontWeight": "bold"
+      }
+    },
+    {
+      "id": "el-2",
+      "type": "text",
+      "content": "An AI-powered platform for generating stunning pitch decks.",
+      "position": { "x": 50, "y": 120 },
+      "size": { "width": 500, "height": 80 },
+      "style": {
+        "fontSize": 18,
+        "color": "#374151"
+      }
+    },
+    {
+      "id": "el-3",
+      "type": "image",
+      "src": "https://via.placeholder.com/200x100.png?text=Logo",
+      "position": { "x": 400, "y": 250 },
+      "size": { "width": 200, "height": 100 }
+    }
+  ]
+}
